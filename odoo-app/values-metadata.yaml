@@ -143,4 +143,51 @@ resources:
         type: "string"
         required: true   
 
+odoo:
+  __metadata:
+    label: "Odoo configuration"
+  dbhost:
+    __metadata:
+      name: "admin_password"
+      label: "Password Admin Odoo"
+      description: "Password Admin Odoo."
+      type: "password"
+      immutable: "false"
+      required: true
+
+database:
+  __metadata:
+    label: "Odoo DB configuration"
+  dbhost:
+    __metadata:
+      name: "dbhost"
+      label: "DB Host"
+      description: "Name of the postgres service."
+      type: "string"
+      immutable: "false"
+      required: true
+  dbuser:
+    __metadata:
+      name: "dbuser"
+      label: "Odoo User DB"
+      description: "Name of the postgres user used by Odoo app."
+      type: "string"
+      immutable: "false"
+      required: true
+  dbpassword:
+    __metadata:
+      name: "dbpassword"
+      label: "Odoo User Password"
+      description: "Password of the postgres user used by Odoo app."
+      type: "password"
+      immutable: "false"
+      required: true
+  pgpassword:
+    __metadata:
+      name: "pgpassword"
+      label: "PostgreSQL superuser password"
+      description: "Password of the postgres superuser."
+      type: "password"
+      immutable: "false"
+      required: true
         
