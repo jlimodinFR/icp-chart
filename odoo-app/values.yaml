@@ -1,16 +1,53 @@
+
+###############################################################################
+############################### Odoo ##########################################
+###############################################################################
+
+###############################################################################
+## Common image variables
+###############################################################################
+
+# Specify architecture (amd64, ppc64le, s390x) and weight to be  used for scheduling as follows :
+#   0 - Do not use
+#   1 - Least preferred
+#   2 - No preference
+#   3 - Most preferred
+arch:
+  amd64: "2 - No preference"
+  ppc64le: "2 - No preference"
+  s390x: "2 - No preference"
+
 image:
   repository: schabrolles/odoo_ppc64le
   tag: icp
   pullPolicy: IfNotPresent
 
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+resources:
+  requests:
+    memory: 2Gi
+    cpu: 4000m
+  limits:
+    memory: 16Gi
+    cpu: 32000m
+
+service:
+  name: odoo-app
+  type: NodePort
+
 ## Odoo Application attributes - empty value will be 
 ## overiden with default.
 odoo:
-  admin_password: ""
+  admin_password: "admin"
+
 ## Database access attributes - empty value will be
 ## overriden with default
 database:
   dbhost: ""
   pgpassword: "" 
-  dbuser: ""
-  dbpassword: ""
+  dbuser: "odoo"
+  dbpassword: "odoo"
+
+

@@ -1,3 +1,62 @@
+## Architecture configuration metadata
+## Arch metadata
+arch:
+  __metadata:
+    label: "Architecture scheduling preferences"
+  amd64:
+    __metadata:
+      name: "amd64"
+      label: "AMD64 scheduling preference"
+      description: "Architecture preference for target worker node."
+      type: "string"
+      immutable: false
+      required: true
+      options:
+      - label: "0 - Do not use"
+        value: "0 - Do not use"
+      - label: "1 - Least preferred"
+        value: "1 - Least preferred"
+      - label: "2 - No preference"
+        value: "2 - No preference"  
+      - label: "3 - Most preferred"
+        value: "3 - Most preferred"  
+ 
+  ppc64le:
+    __metadata:
+      name: "ppc64le"
+      label: "PPC64LE scheduling preference"
+      description: "Architecture preference for target worker node."
+      type: "string"
+      immutable: false
+      required: true
+      options:
+      - label: "0 - Do not use"
+        value: "0 - Do not use"
+      - label: "1 - Least preferred"
+        value: "1 - Least preferred"
+      - label: "2 - No Preference"
+        value: "2 - No Preference"  
+      - label: "3 - Most preferred"
+        value: "3 - Most preferred"  
+  
+  s390x:
+    __metadata:
+      name: "s390x"
+      label: "S390X scheduling preference"
+      description: "Architecture preference for target worker node."
+      type: "string"
+      immutable: false
+      required: true
+      options:
+      - label: "0 - Do not use"
+        value: "0 - Do not use"
+      - label: "1 - Least preferred"
+        value: "1 - Least preferred"
+      - label: "2 - No Preference"
+        value: "2 - No Preference"  
+      - label: "3 - Most preferred"
+        value: "3 - Most preferred"  
+
 ## Image configuration metadata
 image:
   __metadata:
@@ -25,4 +84,63 @@ image:
         value: "Always"
       - label: "Never"
         value: "Never"
+        
+## Service configuration metadata
+service:
+  __metadata:
+    label: "Service configuration"
+  name: 
+    __metadata:
+      name: "Name"
+      label: "Service Name"
+      description: "This is the Service Name"
+      type: "string"
+      immutable: "false"
+      required: true
+      validation: "^[a-zA-Z]([-a-zA-Z0-9])+$"
+  type: 
+    __metadata:
+      name: "Type"
+      label: "Service Type"
+      description: "This is the Service Type"
+      type: "string"
+      immutable: "false"
+      required: true
+      options:
+        - label: "Cluster IP"
+          value: "ClusterIP"
+        - label: "Node Port"
+          value: "NodePort"
+
+## Resource requests and limits configuration metadata
+resources:
+  __metadata:
+    label: "Resource configuration"
+  requests:
+    cpu: 
+      __metadata: 
+        label: "CPU request"
+        description: "The requested CPU"
+        type: "string"
+        required: true   
+    memory: 
+      __metadata: 
+        label: "Memory request"
+        description: "The memory request"
+        type: "string"
+        required: true   
+  limits:
+    cpu: 
+      __metadata: 
+        label: "CPU limit"
+        description: "The CPU limit"
+        type: "string"
+        required: true   
+    memory: 
+      __metadata: 
+        label: "Memory limit"
+        description: "The memeory limit"
+        type: "string"
+        required: true   
+
         

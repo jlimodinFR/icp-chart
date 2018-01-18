@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-{{ .Release.Name }}
+  name: {{ .Values.service.name }}
   labels:
-    app: svc-{{ .Release.Name }}
+    app: {{ .Values.service.name }}
     tier: frontend
 spec:
-  type: NodePort
+  type: {{ .Values.service.type }}
   ports:
   - port: 8069
     protocol: TCP
-    name: svc-{{ .Release.Name }}
+    name: {{ .Values.service.name }}
   selector:
     app: {{ .Release.Name }}
     tier: frontend
