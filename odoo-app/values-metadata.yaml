@@ -146,7 +146,7 @@ resources:
 odoo:
   __metadata:
     label: "Odoo configuration"
-  dbhost:
+  admin_password:
     __metadata:
       name: "admin_password"
       label: "Password Admin Odoo"
@@ -165,7 +165,7 @@ database:
       description: "Name of the postgres service."
       type: "string"
       immutable: "false"
-      required: true
+      required: false
   dbuser:
     __metadata:
       name: "dbuser"
@@ -189,5 +189,5 @@ database:
       description: "Password of the postgres superuser."
       type: "password"
       immutable: "false"
-      required: true
+      required: false
         
