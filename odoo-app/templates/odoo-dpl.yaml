@@ -36,6 +36,11 @@ spec:
             secretKeyRef:
               name: "{{ .Release.Name }}-pg-pass"
               key: password
+        - name: ADMIN_PASSWD
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Release.Name }}-odoo-admin-pass"
+              key: password
         ports:
         - containerPort: 8069
           name: {{ .Release.Name }}

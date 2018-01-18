@@ -3,6 +3,10 @@ image:
   tag: icp
   pullPolicy: IfNotPresent
 
+## Odoo Application attributes - empty value will be 
+## overiden with default.
+odoo:
+  admin_password: ""
 ## Database access attributes - empty value will be
 ## overriden with default
 database:
