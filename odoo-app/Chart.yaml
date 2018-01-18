@@ -1,6 +1,6 @@
 description: Odoo Application
 name: odoo-app
-version: 0.2.5.1
+version: 0.2.6
 keywords:
   - odoo
   - openerp
