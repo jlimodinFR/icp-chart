@@ -150,7 +150,7 @@ odoo:
     __metadata:
       name: "admin_password"
       label: "Password Admin Odoo"
-      description: "Password Admin Odoo."
+      description: "Password Admin Odoo. Defaut is admin."
       type: "password"
       immutable: "false"
       required: true
@@ -178,7 +178,7 @@ database:
     __metadata:
       name: "dbpassword"
       label: "Odoo User Password"
-      description: "Password of the postgres user used by Odoo app."
+      description: "Password of the postgres user used by Odoo app. Defaut is odoo."
       type: "password"
       immutable: "false"
       required: true
