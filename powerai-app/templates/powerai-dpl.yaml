@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }} 
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        name: {{ .Release.Name }}
+        command:
+        - "/bin/bash"
+        - "-c"
+        args:
+        - source /opt/DL/"{{ .Values.ressources.framework.template }}"/bin/"{{ .Values.ressources.framework.template }}"-activate && jupyter notebook --ip=0.0.0.0 --allow-root
+        ports:
+        - containerPort: 8888
+          name: notebook
+        resources:
+          limits:
+            alpha.kubernetes.io/nvidia-gpu: {{ .Values.ressources.gpu.number }}
