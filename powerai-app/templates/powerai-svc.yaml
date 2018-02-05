@@ -4,13 +4,11 @@ metadata:
   name: {{ .Values.service.name }}
   labels:
     app: {{ .Values.service.name }}
-    tier: frontend
 spec:
   type: {{ .Values.service.type }}
   ports:
-  - port: 8069
+  - port: 8888
     protocol: TCP
-    name: {{ .Values.service.name }}
+    name: notebook
   selector:
     app: {{ .Release.Name }}
-    tier: frontend
